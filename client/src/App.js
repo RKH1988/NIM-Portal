@@ -46,8 +46,12 @@ function App() {
                 element={<Profile />}
               />
               <Route
-                path="/thought"
+                path="/comment"
                 element={<SingleComment />}
+              />
+              <Route
+                path='*'
+                element={<NoMatch />}
               />
             </Routes>
           </div>
