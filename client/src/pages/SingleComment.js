@@ -4,7 +4,7 @@ import { useQuery } from '@apollo/client';
 import { QUERY_COMMENT } from '../utils/queries';
 import ReactionList from '../components/ReactionList';
 
-const SingleComment = props => {
+const SingleComment = (props) => {
   const { id: commentId } = useParams();
 
   const { loading, data } = useQuery(QUERY_COMMENT, {

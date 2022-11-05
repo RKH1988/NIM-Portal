@@ -21,9 +21,6 @@
   },
   "homepage": "https://github.com/RKH1988/NIM-Portal#readme",
   "devDependencies": {
-    "concurrently": "^7.5.0"
-  },
-  "dependencies": {
-    "mongoose": "^6.7.1"
+    "concurrently": "^5.1.0"
   }
 }
