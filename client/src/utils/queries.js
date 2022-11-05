@@ -17,3 +17,21 @@ export const QUERY_COMMENTS = gql`
     }
   }
 `;
+
+export const QUERY_COMMENT = gql`
+  query comment($id: ID!) {
+    comment(_id: $id) {
+      _id
+      commentText
+      createdAt
+      username
+      reactionCount
+      reactions {
+        _id
+        createdAt
+        username
+        reactionBody
+      }
+    }
+  }
+`;
