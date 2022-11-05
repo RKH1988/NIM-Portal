@@ -6,97 +6,96 @@ const resolvers = {
   Query: {
     me: async (parent, args, context) => {
       if (context.user) {
-        const userData = await User.findOne({ _id: context.user._id })
+        const donorData = await Donor.findOne({ _id: context.donor._id })
           .select('-__v -password')
           .populate('thoughts')
           .populate('friends');
 
-        return userData;
+        return donorData;
       }
 
       throw new AuthenticationError('Not logged in');
     },
-    users: async () => {
-      return User.find()
+    donors: async () => {
+      return Donor.find()
         .select('-__v -password')
         .populate('thoughts')
         .populate('friends');
     },
-    user: async (parent, { username }) => {
-      return User.findOne({ username })
+    donor: async (parent, { username }) => {
+      return Donor.findOne({ username })
         .select('-__v -password')
         .populate('friends')
         .populate('thoughts');
     },
-    thoughts: async (parent, { username }) => {
+    comments: async (parent, { username }) => {
       const params = username ? { username } : {};
-      return Thought.find(params).sort({ createdAt: -1 });
+      return Comments.find(params).sort({ createdAt: -1 });
     },
-    thought: async (parent, { _id }) => {
-      return Thought.findOne({ _id });
+    comment: async (parent, { _id }) => {
+      return Comment.findOne({ _id });
     }
   },
 
   Mutation: {
     addUser: async (parent, args) => {
-      const user = await User.create(args);
-      const token = signToken(user);
+      const donor = await Donor.create(args);
+      const token = signToken(donor);
 
-      return { token, user };
+      return { token, donor };
     },
     login: async (parent, { email, password }) => {
-      const user = await User.findOne({ email });
+      const donor = await Donor.findOne({ email });
 
-      if (!user) {
+      if (!donor) {
         throw new AuthenticationError('Incorrect credentials');
       }
 
-      const correctPw = await user.isCorrectPassword(password);
+      const correctPw = await donor.isCorrectPassword(password);
 
       if (!correctPw) {
         throw new AuthenticationError('Incorrect credentials');
       }
 
       const token = signToken(user);
-      return { token, user };
+      return { token, donor };
     },
     addThought: async (parent, args, context) => {
       if (context.user) {
-        const thought = await Thought.create({ ...args, username: context.user.username });
+        const comment = await Comment.create({ ...args, username: context.user.username });
 
-        await User.findByIdAndUpdate(
+        await Donor.findByIdAndUpdate(
           { _id: context.user._id },
-          { $push: { thoughts: thought._id } },
+          { $push: { comments: thought._id } },
           { new: true }
         );
 
-        return thought;
+        return comment;
       }
 
       throw new AuthenticationError('You need to be logged in!');
     },
-    addReaction: async (parent, { thoughtId, reactionBody }, context) => {
+    addReaction: async (parent, { commentId, reactionBody }, context) => {
       if (context.user) {
-        const updatedThought = await Thought.findOneAndUpdate(
-          { _id: thoughtId },
-          { $push: { reactions: { reactionBody, username: context.user.username } } },
+        const updatedComment = await Comment.findOneAndUpdate(
+          { _id: thoughtcomment { reactions: { reactionBody, username: context.donor.username } } },
           { new: true, runValidators: true }
         );
 
-        return updatedThought;
+        return updatedComment;
       }
 
       throw new AuthenticationError('You need to be logged in!');
     },
     addFriend: async (parent, { friendId }, context) => {
-      if (context.user) {
-        const updatedUser = await User.findOneAndUpdate(
-          { _id: context.user._id },
+      if (context.donor) {
+        const updatedDonor = await Donor.findOneAndUpdate(
+          { _id: context.donor._id },
           { $addToSet: { friends: friendId } },
           { new: true }
         ).populate('friends');
 
-        return updatedUser;
+        return updatedDonor;
       }
 
       throw new AuthenticationError('You need to be logged in!');
