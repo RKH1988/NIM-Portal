@@ -35,3 +35,24 @@ export const QUERY_COMMENT = gql`
     }
   }
 `;
+
+export const QUERY_USER = gql`
+  query user($username: String!) {
+    user(username: $username) {
+      _id
+      username
+      email
+      friendCount
+      friends {
+        _id
+        username
+      }
+      comments {
+        _id
+        commentText
+        createdAt
+        reactionCount
+      }
+    }
+  }
+`;
