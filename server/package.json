@@ -16,9 +16,9 @@
     "author": "",
     "license": "ISC",
     "bugs": {
-      "url": "https://github.com/JessicaM04/NIM-portal/issues"
+      "url": "https://github.com/RKH1988/NIM-Portal/issues"
     },
-    "homepage": "https://github.com/JessicaM04/NIM-portal#readme",
+    "homepage": "https://github.com/RKH1988/NIM-Portal#readme",
     "dependencies": {
       "apollo-server-express": "^3.11.1",
       "graphql": "^16.6.0"
