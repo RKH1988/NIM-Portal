@@ -17,10 +17,13 @@
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/JessicaM04/NIM-portal/issues"
+    "url": "https://github.com/RKH1988/NIM-Portal/issues"
   },
-  "homepage": "https://github.com/JessicaM04/NIM-portal#readme",
+  "homepage": "https://github.com/RKH1988/NIM-Portal#readme",
   "devDependencies": {
     "concurrently": "^7.5.0"
+  },
+  "dependencies": {
+    "mongoose": "^6.7.1"
   }
 }
