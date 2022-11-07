@@ -3,8 +3,6 @@ const mongoose = require("mongoose");
 const connection_str =
   process.env.MONGODB_URI || "mongodb://localhost/NIM-portal";
 
-console.log({ connection_str });
-
 mongoose.connect(
   connection_str,
   {
