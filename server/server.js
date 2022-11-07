@@ -1,4 +1,16 @@
+
 const path = require('path');
+const env_path =  path.join(path.dirname(''),'.env') 
+
+require('dotenv').config({
+  path: env_path
+})
+
+/**
+ * after above runs
+ * process.env should be populated with variables and values from .env file
+ */
+
 const express = require('express');
 const db = require('./config/connection');
 
