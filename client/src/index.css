@@ -1,10 +1,10 @@
 :root {
-  --primary: #497573;
-  --secondary: #99f7f2;
-  --tertiary: #b2c2c1;
+  --primary: #7fdfda;
+  --secondary: #e9f1f0;
+  --tertiary: #d0e9e9;
   --quatrinary: #cadbda;
-  --light: #e1f5f4;
-  --dark: #6c7575;
+  --light: #e9f1f0;
+  --dark: #b66d35;
   --error: rgb(228, 46, 1);
   --border-radius: 0.3rem;
   --spacing-one: calc(1rem * 0.25);
@@ -56,6 +56,7 @@ h2 {
 
 h3 {
   font-size: 1.75rem;
+  color:#e28743
 }
 
 h4 {
@@ -234,6 +235,7 @@ nav a:hover {
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
+  color:antiquewhite;
 }
 
 .container-fluid {
@@ -737,6 +739,7 @@ nav a:hover {
 
 .text-center {
   text-align: center;
+  color:antiquewhite;
 }
 
 .text-justify {
@@ -781,7 +784,7 @@ nav a:hover {
 }
 
 .bg-secondary {
-  background-color: var(--secondary);
+  background-image: linear-gradient(to right, rgb(33, 166, 214), rgb(15, 77, 121));
 }
 
 .bg-tertiary {
@@ -838,6 +841,7 @@ nav a:hover {
 
 .align-center {
   align-items: center;
+  color:antiquewhite;
 }
 
 .col-auto {

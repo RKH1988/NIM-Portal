@@ -2,7 +2,7 @@ import React from 'react';
 
 const About = () => {
   return (
-    <div>
+    <div className="text-dark">
       <h1>Our Purpose</h1>
       <p>
         Here at the Nonprofit Interactive Messaging Portal, or the NIM Portal, we want to help users with communications 

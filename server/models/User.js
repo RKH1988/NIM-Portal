@@ -1,7 +1,7 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
 
-const donorSchema = new Schema(
+const userSchema = new Schema(
   {
     username: {
       type: String,
@@ -29,7 +29,7 @@ const donorSchema = new Schema(
     friends: [
       {
         type: Schema.Types.ObjectId,
-        ref: 'Donor'
+        ref: 'User'
       }
     ]
   },
@@ -41,7 +41,7 @@ const donorSchema = new Schema(
 );
 
 // set up pre-save middleware to create password
-donorSchema.pre('save', async function(next) {
+userSchema.pre('save', async function(next) {
   if (this.isNew || this.isModified('password')) {
     const saltRounds = 10;
     this.password = await bcrypt.hash(this.password, saltRounds);
@@ -51,14 +51,14 @@ donorSchema.pre('save', async function(next) {
 });
 
 // compare the incoming password with the hashed password
-donorSchema.methods.isCorrectPassword = async function(password) {
+userSchema.methods.isCorrectPassword = async function(password) {
   return bcrypt.compare(password, this.password);
 };
 
-donorSchema.virtual('friendCount').get(function() {
+userSchema.virtual('friendCount').get(function() {
   return this.friends.length;
 });
 
-const Donor = model('Donor', donorSchema);
+const User = model('User', userSchema);
 
-module.exports = Donor;
+module.exports = User;
