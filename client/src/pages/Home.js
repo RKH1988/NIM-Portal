@@ -3,7 +3,7 @@ import { useQuery } from '@apollo/client';
 import { QUERY_COMMENTS, QUERY_ME_BASIC } from '../utils/queries';
 import CommentList from '../components/CommentList';
 import FriendList from '../components/FriendList';
-
+import About from '../components/About';
 import Auth from '../utils/auth';
 
 const Home = () => {
@@ -12,20 +12,24 @@ const Home = () => {
   const { data: userData } = useQuery(QUERY_ME_BASIC);
   const comments = data?.comments || [];
   console.log(comments);
-  
+
   const loggedIn = Auth.loggedIn();
 
   return (
     <main>
-  <div className="flex-row justify-space-between">
-    <div className={`col-12 mb-3 ${loggedIn && 'col-lg-8'}`}>
-      {loading ? (
-        <div>Loading...</div>
-      ) : (
-        <CommentList comments={comments} title="Some Feed for Comment(s)..." />
-      )}
-    </div>
-    {loggedIn && userData ? (
+      <div className="flex-row justify-space-between">
+        <div className={`col-12 mb-3 ${loggedIn && 'col-lg-8'}`}>
+          {loading ? (
+            <div>Loading...</div>
+          ) : (
+            <div>
+              {loggedIn ? (
+                <CommentList comments = { comments } title = "Some Feed for Comment(s)..." />
+              ): <About/>}
+            </div>
+          )}
+        </div>
+        {loggedIn && userData ? (
           <div className="col-12 col-lg-3 mb-3">
             <FriendList
               username={userData.me.username}
@@ -34,8 +38,8 @@ const Home = () => {
             />
           </div>
         ) : null}
-  </div>
-</main>
+      </div>
+    </main>
   );
 };
 export default Home;
