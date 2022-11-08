@@ -22,5 +22,8 @@
   "homepage": "https://github.com/RKH1988/NIM-Portal#readme",
   "devDependencies": {
     "concurrently": "^5.1.0"
+  },
+  "dependencies": {
+    "react-border-wrapper": "^1.0.3"
   }
 }

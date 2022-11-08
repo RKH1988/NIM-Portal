@@ -5,6 +5,8 @@ import CommentList from '../components/CommentList';
 import FriendList from '../components/FriendList';
 import About from '../components/About';
 import Auth from '../utils/auth';
+import BorderWrapper from "react-border-wrapper";
+// import bottomElement from "../components/Elements";
 
 const Home = () => {
   // use useQuery hook to make query request
@@ -25,7 +27,26 @@ const Home = () => {
             <div>
               {loggedIn ? (
                 <CommentList comments = { comments } title = "See What's Happening in Our Organization" />
-              ): <About/>}
+              ): 
+              <BorderWrapper
+              borderColour="#b66d35"
+              borderWidth="5px"
+              borderRadius="15px"
+              borderType="solid"
+              innerPadding="30px"
+              // bottomElement={bottomElement}
+              topPosition={0.05}
+              topOffset="22px"
+              topGap="4px"
+              // rightElement={rightElement}
+              rightPosition={0.1}
+              rightOffset="22px"
+              rightGap="4px"
+              >
+                <About/>
+              </BorderWrapper>
+              } 
+              
             </div>
           )}
         </div>
