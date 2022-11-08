@@ -11,6 +11,7 @@ import NoMatch from './pages/NoMatch';
 import SingleComment from './pages/SingleComment';
 import Profile from './pages/Profile';
 import Signup from './pages/Signup';
+import About from './pages/About';
 
 import Home from './pages/Home';
 
@@ -44,6 +45,10 @@ function App() {
               <Route
                 path="/"
                 element={<Home />}
+              />
+              <Route
+                path="/about"
+                element={<About />}
               />
               <Route
                 path="/login"
