@@ -9,11 +9,27 @@ const path = require("path");
 const express = require("express");
 const db = require("./config/connection");
 
+const { ApolloServer } = require("apollo-server-express");
+const { resolvers, typeDefs } = rquire("./schemas");
+
 const PORT = process.env.PORT || 3001;
 const app = express();
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+
+const server = new ApolloServer({ typeDefs, resolvers });
+server.applyMiddleware({ app });
+
+app.get("/", (req, res) => {
+  console.log("Apollo GraphQL Express server is ready");
+});
+
+// app.listen({ port: PORT }, () => {
+//   console.log(
+//     `Server is running at http://localhost:8080${server.graphqlPath}`
+//   );
+// });
 
 // Serve up static assets
 if (process.env.NODE_ENV === "production") {
@@ -26,6 +42,9 @@ app.get("*", (req, res) => {
 
 db.once("open", () => {
   app.listen(PORT, () => {
-    console.log(`API server running on port ${PORT}!`);
+    console.log([
+      `API server running on port ${PORT}`,
+      `grapql served at http://localhost:${PORT}${server.graphqlPath}`,
+    ]);
   });
 });

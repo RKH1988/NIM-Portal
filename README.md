@@ -15,3 +15,6 @@ user nimmy
 
 she should add all the packages she installed to package.json
 server, client
+
+tomorrow
+connecting apollo graphql to express to test the playground, all work in server/server.js
