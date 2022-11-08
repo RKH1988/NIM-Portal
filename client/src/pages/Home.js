@@ -24,7 +24,7 @@ const Home = () => {
           ) : (
             <div>
               {loggedIn ? (
-                <CommentList comments = { comments } title = "Some Feed for Comment(s)..." />
+                <CommentList comments = { comments } title = "See What's Happening in Our Organization" />
               ): <About/>}
             </div>
           )}
