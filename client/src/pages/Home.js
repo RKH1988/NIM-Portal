@@ -5,11 +5,14 @@ import CommentList from '../components/CommentList';
 import FriendList from '../components/FriendList';
 import About from '../components/About';
 import Auth from '../utils/auth';
+
+import CommentForm from '../components/CommentForm';
 import BorderWrapper from "react-border-wrapper";
+
 // import bottomElement from "../components/Elements";
 
+
 const Home = () => {
-  // use useQuery hook to make query request
   const { loading, data } = useQuery(QUERY_COMMENTS);
   const { data: userData } = useQuery(QUERY_ME_BASIC);
   const comments = data?.comments || [];
@@ -20,6 +23,11 @@ const Home = () => {
   return (
     <main>
       <div className="flex-row justify-space-between">
+        {loggedIn && (
+        <div className="col-12 mb-3">
+        <CommentForm />
+      </div>
+    )}
         <div className={`col-12 mb-3 ${loggedIn && 'col-lg-8'}`}>
           {loading ? (
             <div>Loading...</div>
