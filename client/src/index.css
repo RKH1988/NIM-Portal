@@ -65,6 +65,7 @@ h4 {
 
 h5 {
   font-size: 1.25rem;
+  color: var(--dark);
 }
 
 h6 {
@@ -110,7 +111,7 @@ nav a:hover {
   background-color: var(--dark);
 }
 
-.no-match {
+.no-match, .form-title {
   color: var(--dark);
 }
 

@@ -1,16 +1,15 @@
 import React from 'react';
+import About from '../components/About';
+import CommentList from '../components/CommentList';
+import CommentForm from '../components/CommentForm';
+import FriendList from '../components/FriendList';
+import Auth from '../utils/auth';
 import { useQuery } from '@apollo/client';
 import { QUERY_COMMENTS, QUERY_ME_BASIC } from '../utils/queries';
-import CommentList from '../components/CommentList';
-import FriendList from '../components/FriendList';
-import About from '../components/About';
-import Auth from '../utils/auth';
 
-import CommentForm from '../components/CommentForm';
 import BorderWrapper from "react-border-wrapper";
 
 // import bottomElement from "../components/Elements";
-
 
 const Home = () => {
   const { loading, data } = useQuery(QUERY_COMMENTS);
