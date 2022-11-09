@@ -5,8 +5,12 @@ import CommentList from '../components/CommentList';
 import FriendList from '../components/FriendList';
 import About from '../components/About';
 import Auth from '../utils/auth';
+
 import CommentForm from '../components/CommentForm';
 import BorderWrapper from "react-border-wrapper";
+
+// import bottomElement from "../components/Elements";
+
 
 const Home = () => {
   const { loading, data } = useQuery(QUERY_COMMENTS);
