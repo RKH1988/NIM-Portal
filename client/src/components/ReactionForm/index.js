@@ -42,4 +42,4 @@ const handleFormSubmit = async event => {
   );
 };
 
-export default ReactionForm
+export default ReactionForm;
