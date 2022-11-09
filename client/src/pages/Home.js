@@ -6,6 +6,8 @@ import FriendList from '../components/FriendList';
 import About from '../components/About';
 import Auth from '../utils/auth';
 import CommentForm from '../components/CommentForm';
+import BorderWrapper from "react-border-wrapper";
+
 
 const Home = () => {
   const { loading, data } = useQuery(QUERY_COMMENTS);
@@ -20,7 +22,7 @@ const Home = () => {
       <div className="flex-row justify-space-between">
         {loggedIn && (
         <div className="col-12 mb-3">
-        <ThoughtForm />
+        <CommentForm />
       </div>
     )}
         <div className={`col-12 mb-3 ${loggedIn && 'col-lg-8'}`}>
@@ -30,7 +32,26 @@ const Home = () => {
             <div>
               {loggedIn ? (
                 <CommentList comments = { comments } title = "See What's Happening in Our Organization" />
-              ): <About/>}
+              ): 
+              <BorderWrapper
+              borderColour="#b66d35"
+              borderWidth="5px"
+              borderRadius="15px"
+              borderType="solid"
+              innerPadding="30px"
+              // bottomElement={bottomElement}
+              topPosition={0.05}
+              topOffset="22px"
+              topGap="4px"
+              // rightElement={rightElement}
+              rightPosition={0.1}
+              rightOffset="22px"
+              rightGap="4px"
+              >
+                <About/>
+              </BorderWrapper>
+              } 
+              
             </div>
           )}
         </div>

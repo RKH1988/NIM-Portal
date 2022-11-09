@@ -19,13 +19,13 @@ const [addComment, { error }] = useMutation(ADD_COMMENT, {
           data: { me: { ...me, comments: [...me.comments, addComment] } },
         });
       } catch (e) {
-        console.warn("First thought insertion by user!")
+        console.warn("First comment insertion by user!")
       }
 
       const { comments } = cache.readQuery({ query: QUERY_COMMENTS});
       cache.writeQuery({
         query: QUERY_COMMENTS,
-        data: { thoughts: [addComment, ...comments] },
+        data: { comments: [addComment, ...comments] },
       });
     }
   });
@@ -66,7 +66,7 @@ const [addComment, { error }] = useMutation(ADD_COMMENT, {
       >
         <textarea
           placeholder="Here's a new comment..."
-          value={thoughtText}
+          value={commentText}
           className="form-input col-12 col-md-9"
           onChange={handleChange}
         ></textarea>
