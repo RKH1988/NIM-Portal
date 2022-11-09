@@ -5,10 +5,10 @@ import { ADD_COMMENT } from '../../utils/mutations';
 import { QUERY_COMMENTS, QUERY_ME } from '../../utils/queries';
 
 const CommentForm = () => {
-const [commentText, setText] = useState('');
-const [characterCount, setCharacterCount] = useState(0);
+  const [commentText, setText] = useState('');
+  const [characterCount, setCharacterCount] = useState(0);
 
-const [addComment, { error }] = useMutation(ADD_COMMENT, {
+  const [addComment, { error }] = useMutation(ADD_COMMENT, {
     update(cache, { data: { addComment } }) {
     
       try {
@@ -25,7 +25,7 @@ const [addComment, { error }] = useMutation(ADD_COMMENT, {
       const { comments } = cache.readQuery({ query: QUERY_COMMENTS});
       cache.writeQuery({
         query: QUERY_COMMENTS,
-        data: { comments: [addComment, ...comments] },
+        data: { comments: [addComment, ...comments] }
       });
     }
   });
@@ -54,7 +54,7 @@ const [addComment, { error }] = useMutation(ADD_COMMENT, {
 
   return (
     <div>
-      <p
+      <p class="form-title"
         className={`m-0 ${characterCount === 280 || error ? 'text-error' : ''}`}
       >
         Character Count: {characterCount}/280

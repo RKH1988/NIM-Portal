@@ -8,7 +8,7 @@ const commentSchema = new Schema(
       type: String,
       minlength: 1,
       maxlength: 280,
-      // required: [true, 'You need to leave a comment!']
+      required: [true, 'You need to leave a comment!']
     },
     createdAt: {
       type: Date,
