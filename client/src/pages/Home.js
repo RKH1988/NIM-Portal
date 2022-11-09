@@ -11,6 +11,7 @@ import BorderWrapper from "react-border-wrapper";
 
 // import bottomElement from "../components/Elements";
 
+
 const Home = () => {
   const { loading, data } = useQuery(QUERY_COMMENTS);
   const { data: userData } = useQuery(QUERY_ME_BASIC);
