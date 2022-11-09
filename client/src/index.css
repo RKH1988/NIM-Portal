@@ -81,8 +81,17 @@ a {
   text-decoration: none;
 }
 
+.footer-link {
+  color: var(--light);
+  text-decoration: none;
+}
+
 a:visited {
   color: inherit;
+}
+
+.oops {
+  width: 200px;
 }
 
 nav {
@@ -99,6 +108,10 @@ nav a {
 nav a:hover {
   color: var(--secondary);
   background-color: var(--dark);
+}
+
+.no-match {
+  color: var(--dark);
 }
 
 .page-title {
