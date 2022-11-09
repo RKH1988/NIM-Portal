@@ -8,7 +8,6 @@ import Auth from '../utils/auth';
 import CommentForm from '../components/CommentForm';
 import BorderWrapper from "react-border-wrapper";
 
-
 const Home = () => {
   const { loading, data } = useQuery(QUERY_COMMENTS);
   const { data: userData } = useQuery(QUERY_ME_BASIC);
