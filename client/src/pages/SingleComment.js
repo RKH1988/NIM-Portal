@@ -7,7 +7,7 @@ import ReactionList from '../components/ReactionList';
 const SingleComment = (props) => {
   const { id: commentId } = useParams();
 
-  const { loading, data } = useQuery(QUERY_COMMENT, {
+  const { loading, data } = useQuery(QUERY_THOUGHTS, {
     variables: { id: commentId }
   });
 
@@ -31,6 +31,8 @@ const SingleComment = (props) => {
         </div>
       </div>
       {comment.reactionCount > 0 && <ReactionList reactions={comment.reactions} />}
+      {Auth.loggedIn() && <ReactionForm commentId={comment._id} />}
+
     </div>
   );
 };

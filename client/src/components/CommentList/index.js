@@ -1,12 +1,14 @@
 import { Link } from 'react-router-dom';
 import React from 'react';
 
+
 const CommentList = ({ comments, title }) => {
-  if (!comments.length) {
+if (!comments.length) {
     return <h3>No Comments Yet</h3>;
   }
 
   return (
+    
     <div>
       <h3>{title}</h3>
       {comments &&
