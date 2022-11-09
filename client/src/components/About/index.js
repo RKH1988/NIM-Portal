@@ -3,11 +3,13 @@ import React from 'react';
 const About = () => {
   return (
     <div className="text-dark">
-      <h1>Our Purpose</h1>
-      <p>
-        Here at the Nonprofit Interactive Messaging Portal, or the NIM Portal, we want to help users with communications 
-        and donations with nonprofit organizations.
-      </p>
+      <div>
+        <h1>Our Purpose</h1>
+        <p>
+          Here at the Nonprofit Interactive Messaging Portal, or the NIM Portal, we want to help users with communications 
+          and donations with nonprofit organizations.
+        </p>
+      </div>
       <h1>Our Story</h1>
       <p>
         Our creators realize that nonprofit organizations are paying large amounts of money to have interactive portals 
