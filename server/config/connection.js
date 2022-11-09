@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-mongoose.connect(process.env.MONGODB_URL || 'mongodb+srv://RKH1988:<123password>@nim-portal.nsvmufw.mongodb.net/?retryWrites=true&w=majority', 
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/NIM-portal', 
 {
   useNewUrlParser: true,
   useUnifiedTopology: true,
