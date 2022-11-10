@@ -34,7 +34,7 @@ const Home = () => {
           ) : (
             <div>
               {loggedIn ? (
-                <CommentList comments = { comments } title = "See What's Happening in Our Organization" />
+                <CommentList comments = {comments} title = "See What's Happening in Our Organization" />
               ): 
               <BorderWrapper
               borderColour="#b66d35"

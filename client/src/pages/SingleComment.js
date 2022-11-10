@@ -1,7 +1,7 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import ReactionList from '../components/ReactionList';
 import ReactionForm from '../components/ReactionForm';
+import ReactionList from '../components/ReactionList';
 import Auth from '../utils/auth';
 import { useQuery } from '@apollo/client';
 import { QUERY_COMMENT } from '../utils/queries';
@@ -33,7 +33,7 @@ const SingleComment = (props) => {
           <p>{comment.commentText}</p>
         </div>
       </div>
-      {comment.reactionCount > 0 && <ReactionList reactions={comment.reactions} />}
+      {comment.reactionCount > 0 && (<ReactionList reactions={comment.reactions} />)}
       {Auth.loggedIn() && <ReactionForm commentId={comment._id} />}
 
     </div>
