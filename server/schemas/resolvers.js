@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Thought } = require('../models');
+const { User, Comment } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -8,7 +8,7 @@ const resolvers = {
       if (context.user) {
         const donorData = await Donor.findOne({ _id: context.donor._id })
           .select('-__v -password')
-          .populate('thoughts')
+          .populate('comments')
           .populate('friends');
 
         return donorData;
@@ -19,18 +19,18 @@ const resolvers = {
     donors: async () => {
       return Donor.find()
         .select('-__v -password')
-        .populate('thoughts')
+        .populate('comments')
         .populate('friends');
     },
     donor: async (parent, { username }) => {
       return Donor.findOne({ username })
         .select('-__v -password')
         .populate('friends')
-        .populate('thoughts');
+        .populate('comments');
     },
     comments: async (parent, { username }) => {
       const params = username ? { username } : {};
-      return Comments.find(params).sort({ createdAt: -1 });
+      return Comment.find(params).sort({ createdAt: -1 });
     },
     comment: async (parent, { _id }) => {
       return Comment.findOne({ _id });
@@ -60,13 +60,13 @@ const resolvers = {
       const token = signToken(user);
       return { token, donor };
     },
-    addThought: async (parent, args, context) => {
+    addComment: async (parent, args, context) => {
       if (context.user) {
         const comment = await Comment.create({ ...args, username: context.user.username });
 
         await Donor.findByIdAndUpdate(
           { _id: context.user._id },
-          { $push: { comments: thought._id } },
+          { $push: { comments: comment._id } },
           { new: true }
         );
 
@@ -78,7 +78,8 @@ const resolvers = {
     addReaction: async (parent, { commentId, reactionBody }, context) => {
       if (context.user) {
         const updatedComment = await Comment.findOneAndUpdate(
-          { _id: thoughtcomment { reactions: { reactionBody, username: context.donor.username } } },
+          { _id: commentId },
+          { $push: { reactions: { reactionBody, username: context.user.username } } },
           { new: true, runValidators: true }
         );
 

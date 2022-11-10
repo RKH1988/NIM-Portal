@@ -22,3 +22,6 @@ npm-debug.log*g
 yarn-debug.log*
 yarn-error.log*
 .env
+
+#do not track client builds
+./client/build

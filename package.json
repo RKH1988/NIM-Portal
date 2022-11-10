@@ -3,12 +3,16 @@
   "version": "1.0.0",
   "description": "",
   "main": "server/server.js",
+  "engines":{
+    "node": "16.x"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server/server.js",
     "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
-    "install": "cd ./server && npm install && cd ../client && npm install",
-    "seed": "cd server && npm run seed"
+    "install": "cd ./server && npm i && cd ../client && npm i",
+    "seed": "cd ./server && node seeders/seeds.js",
+    "build": "cd ./client && npm run build"
   },
   "repository": {
     "type": "git",
@@ -21,9 +25,9 @@
   },
   "homepage": "https://github.com/RKH1988/NIM-Portal#readme",
   "devDependencies": {
-    "concurrently": "^7.5.0"
+    "concurrently": "^5.1.0"
   },
   "dependencies": {
-    "mongoose": "^6.7.1"
+    "react-border-wrapper": "^1.0.3"
   }
 }

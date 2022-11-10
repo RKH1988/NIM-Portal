@@ -1,10 +1,13 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
+import ReactionForm from '../components/ReactionForm';
+import ReactionList from '../components/ReactionList';
+import Auth from '../utils/auth';
 import { useQuery } from '@apollo/client';
 import { QUERY_COMMENT } from '../utils/queries';
-import ReactionList from '../components/ReactionList';
 
-const SingleComment = props => {
+
+const SingleComment = (props) => {
   const { id: commentId } = useParams();
 
   const { loading, data } = useQuery(QUERY_COMMENT, {
@@ -30,7 +33,9 @@ const SingleComment = props => {
           <p>{comment.commentText}</p>
         </div>
       </div>
-      {comment.reactionCount > 0 && <ReactionList reactions={comment.reactions} />}
+      {comment.reactionCount > 0 && (<ReactionList reactions={comment.reactions} />)}
+      {Auth.loggedIn() && <ReactionForm commentId={comment._id} />}
+
     </div>
   );
 };
