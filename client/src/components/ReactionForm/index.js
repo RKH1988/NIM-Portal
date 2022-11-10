@@ -9,7 +9,7 @@ const ReactionForm = ({ commentId }) => {
   const [addReaction, { error }] = useMutation(ADD_REACTION);
 
   // update state based on form input changes
-  const handleChange = (event) => {
+  const handleChange = event => {
     if (event.target.value.length <= 280) {
       setBody(event.target.value);
       setCharacterCount(event.target.value.length);
@@ -17,7 +17,7 @@ const ReactionForm = ({ commentId }) => {
   };
 
   // submit form
-  const handleFormSubmit = async (event) => {
+  const handleFormSubmit = async event => {
     event.preventDefault();
 
     try {
