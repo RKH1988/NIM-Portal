@@ -24,4 +24,4 @@ yarn-error.log*
 .env
 
 #do not track client builds
-./client/build
+/client/build
