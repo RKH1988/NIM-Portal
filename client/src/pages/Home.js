@@ -11,6 +11,7 @@ import BorderWrapper from "react-border-wrapper";
 
 // import bottomElement from "../components/Elements";
 
+
 const Home = () => {
   const { loading, data } = useQuery(QUERY_COMMENTS);
   const { data: userData } = useQuery(QUERY_ME_BASIC);
@@ -33,7 +34,7 @@ const Home = () => {
           ) : (
             <div>
               {loggedIn ? (
-                <CommentList comments = { comments } title = "See What's Happening in Our Organization" />
+                <CommentList comments = {comments} title = "See What's Happening in Our Organization" />
               ): 
               <BorderWrapper
               borderColour="#b66d35"

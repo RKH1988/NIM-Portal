@@ -14,6 +14,7 @@ const CommentForm = () => {
       try {
     
         const { me } = cache.readQuery({ query: QUERY_ME });
+
         cache.writeQuery({
           query: QUERY_ME,
           data: { me: { ...me, comments: [...me.comments, addComment] } },
@@ -37,7 +38,7 @@ const CommentForm = () => {
     }
   };
 
-  const handleFormSubmit = async (event) => {
+  const handleFormSubmit = async event => {
     event.preventDefault();
 
     try {
@@ -54,9 +55,7 @@ const CommentForm = () => {
 
   return (
     <div>
-      <p class="form-title"
-        className={`m-0 ${characterCount === 280 || error ? 'text-error' : ''}`}
-      >
+      <p className={`m-0 ${characterCount === 280 || error ? 'text-error' : ''}`}>
         Character Count: {characterCount}/280
         {error && <span className="ml-2">Something went wrong...</span>}
       </p>
