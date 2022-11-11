@@ -39,7 +39,42 @@ A nonprofit can sign up to utilize NIM Portal and provide their donors with a sa
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](./code_of_conduct.md)
 
 ## Screenshots
+About Page
 
+![About Page](./Assets/screenshot1.png)
+
+Login Page
+
+![Login Page](./Assets/screenshot2.png)
+
+SignUp Page
+
+![SignUp Page](./Assets/screenshot3.png)
+
+All Comments Page
+
+![All Comments Page](./Assets/screenshot4.png)
+
+View Another Donor's Page
+
+![View Someone Else's Page](./Assets/screenshot5.png)
+
+View My Profile
+
+![My Profile Page](./Assets/screenshot6.png)
+
+Add a Comment
+
+![Add a Comment](./Assets/screenshot7.png)
+
+Posted Comment
+
+![Posted Comment](./Assets/screenshot8.png)
+
+Single Comment Page with Reactions
+
+![Single Comment Page with Reactions](./Assets/screenshot9.png)
 
 ## Links
 https://github.com/RKH1988/NIM-Portal
+https://nim-portal.herokuapp.com/ 

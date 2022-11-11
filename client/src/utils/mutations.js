@@ -37,20 +37,7 @@ mutation AddComment($commentText: String!) {
     username
   }
 }
-`
-//   mutation addComment($commentText: String!) {
-//     addcomment(commentText: $commentText) {
-//       _id
-//       commentText
-//       createdAt
-//       username
-//       reactionCount
-//       reactions {
-//         _id
-//       }
-//     }
-//   }
-// `;
+`;
 
 export const ADD_REACTION = gql`
   mutation addReaction($commentId: ID!, $reactionBody: String!) {
