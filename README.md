@@ -76,5 +76,5 @@ Single Comment Page with Reactions
 ![Single Comment Page with Reactions](./Assets/screenshot9.png)
 
 ## Links
-https://github.com/RKH1988/NIM-Portal
-https://nim-portal.herokuapp.com/ 
+- https://github.com/RKH1988/NIM-Portal
+- https://nim-portal.herokuapp.com/ 
